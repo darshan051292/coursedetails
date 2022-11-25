@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CourseReview</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script>
+    function myfunction() {
+          var comment = prompt("Please enter the comments:", "");
+          var rating = prompt("Please enter the ratings from 1 to 5", "")
+         }
+</script>
+</head>
+<body class="bodycolor">
+  <h1> Course Ratings and Reviews</h1>
+    <div class = 'container'>
+     <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th>Sr No.</th>
+                <th>Course Name</th>
+                <th>Overall Star Ratings</th>
+                <th>Number of comments given</th>
+                <th>Action button</th>
+            </tr>
+            {% for each_course in courses %}
+            <tr>
+                <td>{{each_course.serial_no}}</td>
+                <td>{{each_course.course_title}}</td>
+                <td>{{each_course.rating}}</td>
+                <td id>{{each_course.comments}}</td>
+                <td><button onclick="myfunction()" style="background-color: green; color: white;">Rate Course</button></td>
+                {% endfor %}
+            </tr>
+        </table>
+     </div>
+    </div>
+</body>
+</html>
